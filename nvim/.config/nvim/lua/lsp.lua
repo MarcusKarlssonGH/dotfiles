@@ -32,6 +32,3 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
--- require'lspconfig'.bashls.setup{
---   on_attach = on_attach,
--- }

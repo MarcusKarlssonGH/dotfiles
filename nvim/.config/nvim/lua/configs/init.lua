@@ -1,0 +1,5 @@
+require("configs.bufferline")
+require("configs.which-key")
+require("configs.treesitter")
+require("configs.lualine")
+require("configs.nvim-tree")

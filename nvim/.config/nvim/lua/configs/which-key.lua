@@ -70,6 +70,7 @@ local mappings = {
     j = { "<cmd>BufferLinePick<cr>", "Jump to Bufffer" },
     f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
     c = { "<cmd>bd<cr>", "Close current" },
+    o = { "<cmd>%bd|e#<cr>", "Close other buffers" },
   },
 }
 
