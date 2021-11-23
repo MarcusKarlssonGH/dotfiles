@@ -132,7 +132,8 @@ groups = [
           Match(wm_class=["Code"])]),
     Group("games", layout="floating", matches=[
           Match(wm_class=["Steam", "Dota", "Dota2"])]),
-    Group("other", layout="monadtall"),
+    Group("other", layout="monadtall", matches=[
+          Match(wm_class=["Discord"])]),
 ]
 
 for idx, g in enumerate(groups):

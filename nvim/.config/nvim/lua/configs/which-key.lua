@@ -50,7 +50,7 @@ local mappings = {
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   f = {
     name = "Find",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    b = { "<cmd>Telescope buffers<cr>", "Find buffer" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
@@ -71,6 +71,11 @@ local mappings = {
     f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
     c = { "<cmd>bd<cr>", "Close current" },
     o = { "<cmd>%bd|e#<cr>", "Close other buffers" },
+  },
+  l = {
+    name = "lsp",
+    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
+    -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Fromat buffer" },
   },
 }
 
