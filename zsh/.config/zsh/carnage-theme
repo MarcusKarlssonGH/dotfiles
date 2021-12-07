@@ -39,4 +39,5 @@ USER="%{$fg[magenta]%}%n%{$reset_color%}"
 CURRENT_DIR="%{$fg_bold[blue]%}[%3~]%{$reset_color%} "
 GIT="\$vcs_info_msg_0_ "
 ARROW="%(?:%{$fg_bold[green]%}%B➜%b :%{$fg_bold[red]%}➜ )"
-PROMPT="${CURRENT_DIR}${GIT}${ARROW}"
+NEWLINE=$'\n'
+PROMPT="${CURRENT_DIR}${GIT}${NEWLINE}${ARROW}"

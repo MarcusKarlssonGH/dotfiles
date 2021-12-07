@@ -39,4 +39,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
 
 # Aliases
 alias ll="ls -la"
+alias g="lazygit"
 alias grep='grep --color=auto'
