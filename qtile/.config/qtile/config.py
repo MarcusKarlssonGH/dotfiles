@@ -288,8 +288,7 @@ my_widgets = [
 keys.append(Key(["mod4"], "space", z_next_keyboard))
 
 screens = [
-    Screen(top=bar.Bar(my_widgets, 24, opacity=1.0), wallpaper="/home/marcus/Pictures/Wallpapers/dota2.jpg"),
-    # Screen(top=bar.Bar(my_widgets, 24, opacity=1.0), wallpaper="/home/marcus/Pictures/Wallpapers/dota2.jpg"),
+    Screen(top=bar.Bar(my_widgets, 24, opacity=1.0), wallpaper="/home/marcus/Pictures/Wallpapers/dota3.jpg"),
     Screen(top=bar.Bar(my_widgets[:4], 24, opacity=1.0), wallpaper="/home/marcus/Pictures/Wallpapers/dota2.jpg"),
 ]
 
