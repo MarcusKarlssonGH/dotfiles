@@ -17,7 +17,7 @@ function +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == true ]]; then
     STATUS=$(git status ${FLAGS} 2> /dev/null | tail -n 1)
     if [[ -n $STATUS ]] ; then
-      hook_com[misc]="%{$fg[yellow]%}✗"
+      hook_com[misc]="%{$fg_bold[magenta]%}✗"
     else
       hook_com[misc]=""
     fi

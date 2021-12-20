@@ -35,7 +35,7 @@ zsh_add_file "carnage-theme"
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=blue'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#509ed8"
 
 # Aliases
 alias ll="ls -la"
