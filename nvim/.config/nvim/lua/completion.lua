@@ -10,7 +10,7 @@ cmp.setup({
     ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
     ['<C-l>'] = cmp.mapping.confirm({ select = true }),
     ['<C-f>'] = cmp.mapping.confirm({ select = true }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-s>'] = cmp.mapping.scroll_docs(4),
   },
@@ -43,6 +43,7 @@ cmp.setup({
     native_menu = false,
     ghost_text = true,
   },
+  documentation = true,
 })
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
