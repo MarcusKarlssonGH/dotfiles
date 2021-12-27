@@ -75,7 +75,7 @@ local mappings = {
   l = {
     name = "lsp",
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-    -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Fromat buffer" },
+    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Fromat buffer" },
   },
 }
 
