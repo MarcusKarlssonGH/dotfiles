@@ -5,5 +5,4 @@ end
 
 require("carnage.lsp.lsp-installer")
 require("carnage.lsp.handlers").setup()
-require("carnage.lsp.language-servers")
 -- require("configs.lsp.null-ls")
