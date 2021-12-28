@@ -36,7 +36,7 @@ zstyle ':vcs_info:git:*' formats "on %{$fg_bold[cyan]%}%b%m"
 
 # Mine
 USER="%{$fg[magenta]%}%n%{$reset_color%}"
-CURRENT_DIR="%{$fg_bold[blue]%}[%3~]%{$reset_color%} "
+CURRENT_DIR="%{$fg_bold[blue]%}[%~]%{$reset_color%} "
 GIT="\$vcs_info_msg_0_ "
 ARROW="%(?:%{$fg_bold[green]%}%B➜%b :%{$fg_bold[red]%}➜ )"
 NEWLINE=$'\n'
