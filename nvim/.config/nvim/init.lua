@@ -12,6 +12,3 @@ require("carnage.whichkey")
 -- Fancy things
 require("carnage.lualine")
 require("carnage.bufferline")
-
--- Why does the setup work here, but not in plugins.lua?
-require("Comment").setup()
