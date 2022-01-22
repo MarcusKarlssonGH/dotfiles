@@ -41,3 +41,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#509ed8"
 alias ll="ls -la"
 alias g="lazygit"
 alias grep='grep --color=auto'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
