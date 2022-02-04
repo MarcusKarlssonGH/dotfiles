@@ -134,6 +134,8 @@ groups = [
           Match(wm_class=["Steam", "Dota", "Dota2"])]),
     Group("other", layout="monadtall", matches=[
           Match(wm_class=["Discord", "discord"])]),
+    Group("vlc", layout="max", matches=[
+          Match(wm_class=["vlc", "VLC"])]),
 ]
 
 for idx, g in enumerate(groups):
@@ -273,6 +275,8 @@ my_widgets = [
         update_interval=0.1,
         volume_app="pavucontrol",
         step=5,
+        mouse_callbacks={
+            "Button1": lambda: qtile.cmd_spawn("pavucontrol")},
     ),
     separator,
     # widget.Systray(icon_size=24, padding=4), 
