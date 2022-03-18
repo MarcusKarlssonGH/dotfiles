@@ -14,6 +14,10 @@ vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 
+-- Navigate buffers
+vim.api.nvim_set_keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { silent = true })
+
 -- Better indenting
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
@@ -49,4 +53,3 @@ vim.api.nvim_set_keymap('i', ',', ',<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '.', '.<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '!', '!<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '?', '?<c-g>u', { noremap = true, silent = true })
-
