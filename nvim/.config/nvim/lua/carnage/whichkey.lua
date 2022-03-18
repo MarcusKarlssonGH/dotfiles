@@ -60,6 +60,8 @@ local mappings = {
     g = { "<cmd>Telescope live_grep<cr>", "grep" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    s = { "<cmd>Telescope grep_string<cr>", "Find String" },
+    d = { "<cmd>Telescope find_files cwd=~/dotfiles hidden=true<cr>", "Seach dotfiles" },
     p = {
       "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
