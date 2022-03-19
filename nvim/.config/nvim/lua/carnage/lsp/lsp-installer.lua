@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 -- For more info, see https://github.com/williamboman/nvim-lsp-installer/
+-- Do we want to rely on lsp_installer? what if we remove this plugin?
 lsp_installer.on_server_ready(function(server)
 	local opts = {
 		on_attach = require("carnage.lsp.handlers").on_attach,
