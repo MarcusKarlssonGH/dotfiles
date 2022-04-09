@@ -1,8 +1,4 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
+require("carnage.lsp.diagnostics")
+require("carnage.lsp.servers").setup()
 
-require("carnage.lsp.lsp-installer")
-require("carnage.lsp.handlers").setup()
 -- require("configs.lsp.null-ls")
