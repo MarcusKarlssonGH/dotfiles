@@ -53,5 +53,7 @@ return require('packer').startup(function(use)
     "folke/which-key.nvim",
     config = function() require("which-key").setup { } end
   }
+  use "machakann/vim-sandwich"
+
   use "/home/marcus/code/nvim/stackmap.nvim/"
 end)
