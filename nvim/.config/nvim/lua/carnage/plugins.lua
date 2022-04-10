@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
   use 'glepnir/lspsaga.nvim'
   use { 'L3MON4D3/LuaSnip' }
+-- Formatting
+  use 'jose-elias-alvarez/null-ls.nvim'
+
 -- TreeSitter
   use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'}
