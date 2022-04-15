@@ -1,5 +1,39 @@
 Config TODO
 
+general
+  sessions:
+    tmux or nvim?
+
+nvim
+  bufferline: what do we want/need here?
+    mini.tabline
+    tabline.nvm
+    bufferline.nvm
+  NvimTree
+    refresh
+    open to show current file
+    width?
+  options/settings
+    wildmode
+  other
+    vim-test
+    editor-config
+    renamer
+    mini.starter
+    mini.sessions
+    mini.cursorword
+  tidy/'mini.trailspace'
+  nvim-ts-rainbow
+  pairing
+    mini.pairs
+    autopairs
+    smartpairs
+    pears
+  status
+    mini.statusline
+    lualine
+    lsp-status
+
 ZSH
   Theme
     git time
@@ -12,11 +46,30 @@ ZSH
   vim bindings?
   Other bindings?
 
-Tmux
-  tab separator
 
-general
-  install script with stow
+bazel
+  what to test:
+    functional
+    cg, qac, show/update warnings
+  scope:
+    smalles/nearest (component)
+    domain function
+
+Common sessions
+  private
+    kattis
+    aoc
+    dotfiles
+  work
+    TsrMonitor
+    Tracker
+    // it would be good to fzf over (some) folders in fdMain and open an nvim session there
+    // To me, this makes more sense to have in tmux? would we want a different session for this, or just a different window?
+    // current workflow says window?
+
+
+
+
 
 
 
