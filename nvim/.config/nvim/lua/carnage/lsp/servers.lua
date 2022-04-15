@@ -19,22 +19,9 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 end
 
--- Highlighting does not seem to work...
-local function lsp_highlight_document(client)
-  if client.resolved_capabilities.document_highlight then
-    vim.cmd [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]]
-  end
-end
-
 local function default_on_attach(client, bufnr)
+  -- TODO: Do we need word highlight?
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
 end
 
 local servers = {
