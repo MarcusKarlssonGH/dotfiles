@@ -47,7 +47,7 @@ vim.api.nvim_set_keymap('n', 'Y', 'yg$', { noremap = true, silent = true })
 -- Better jumping
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'J', "mzJ'z", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'J', "mzJ`z", { noremap = true, silent = true })
 -- Undo checkpoints
 vim.api.nvim_set_keymap('i', ',', ',<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '.', '.<c-g>u', { noremap = true, silent = true })
