@@ -1,0 +1,8 @@
+DOTFILES=$HOME/dotfiles/
+STOW_FOLDERS="bin,tmux,zsh,nvim,qtile"
+pushd $DOTFILES
+for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
+do
+  stow -R $folder
+done
+popd
