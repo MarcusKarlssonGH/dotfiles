@@ -21,6 +21,7 @@ local servers = {
     },
   },
   sumneko_lua = require("carnage.lsp.settings.sumneko_lua"),
+  omnisharp = require("carnage.lsp.settings.omnisharp"),
 }
 
 local setup_server = function(server, config)
