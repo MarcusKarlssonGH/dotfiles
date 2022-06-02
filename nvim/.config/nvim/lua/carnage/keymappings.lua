@@ -3,7 +3,7 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true
 vim.g.mapleader = ' '
 
 
-vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 
 -- Reload (Temp for development)
 vim.api.nvim_set_keymap('n', '<leader>r', ':luafile %<CR>', { noremap = true })
