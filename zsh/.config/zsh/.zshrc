@@ -24,6 +24,11 @@ function zsh_add_plugin() {
     fi
 }
 
+function my_backward_delete_word() {
+  local WORDCHARS=${WORDCHARS/\//}
+  zle backward-delete-word
+}
+
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
@@ -34,6 +39,8 @@ zsh_add_file "carnage-theme"
 
 bindkey '^P' history-substring-search-up
 bindkey '^N' history-substring-search-down
+zle -N my_backward_delete_word
+bindkey '^W' my_backward_delete_word
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#509ed8"
 
