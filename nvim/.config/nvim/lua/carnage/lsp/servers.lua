@@ -19,6 +19,7 @@ local servers = {
       "--clang-tidy",
       "--header-insertion=iwyu",
     },
+    filetypes = { "c", "cpp" },
   },
   sumneko_lua = require("carnage.lsp.settings.sumneko_lua"),
   omnisharp = require("carnage.lsp.settings.omnisharp"),
