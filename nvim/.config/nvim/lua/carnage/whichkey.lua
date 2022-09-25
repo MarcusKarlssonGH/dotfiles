@@ -51,7 +51,6 @@ local mappings = {
   f = {
     name = "Find",
     b = { "<cmd>Telescope buffers<cr>", "Find buffer" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -62,10 +61,7 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     d = { "<cmd>Telescope find_files cwd=~/dotfiles hidden=true<cr>", "Seach dotfiles" },
-    p = {
-      "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
-      "Colorscheme with Preview",
-    },
+    c = { "<cmd>Telescope colorscheme enable_preview=true <cr>", "Colorscheme with Preview", },
     t = { "<cmd>TodoTelescope keywords=TODO,FIX<cr>", "Find TODOs" },
   },
   b = {
@@ -84,6 +80,7 @@ local mappings = {
     name = "Packer",
     s = { "<cmd>PackerSync<cr>", "Sync" },
     c = { "<cmd>PackerClean<cr>", "Clean" },
+    i = { "<cmd>PackerInstall<cr>", "Install" },
   },
 }
 
