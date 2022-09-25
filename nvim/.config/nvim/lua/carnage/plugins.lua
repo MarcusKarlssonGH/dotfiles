@@ -15,7 +15,15 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lua'
 	use 'hrsh7th/cmp-nvim-lsp'
   use 'onsails/lspkind-nvim'
-  use 'glepnir/lspsaga.nvim'
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        local saga = require("lspsaga")
+        saga.init_lsp_saga({
+        })
+    end,
+  })
   use { 'L3MON4D3/LuaSnip' }
 -- Formatting
   use 'jose-elias-alvarez/null-ls.nvim'
@@ -53,5 +61,5 @@ return require('packer').startup(function(use)
   }
   use "machakann/vim-sandwich"
 
-  use "/home/marcus/code/nvim/stackmap.nvim/"
+  -- use "/home/marcus/code/nvim/stackmap.nvim/"
 end)
