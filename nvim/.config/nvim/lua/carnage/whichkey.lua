@@ -66,6 +66,7 @@ local mappings = {
       "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     },
+    t = { "<cmd>TodoTelescope keywords=TODO,FIX<cr>", "Find TODOs" },
   },
   b = {
     name = "Buffers",
