@@ -80,6 +80,11 @@ local mappings = {
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
     f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Fromat buffer" },
   },
+  p = {
+    name = "Packer",
+    s = { "<cmd>PackerSync<cr>", "Sync" },
+    c = { "<cmd>PackerClean<cr>", "Clean" },
+  },
 }
 
 wk.register(mappings, opts)
