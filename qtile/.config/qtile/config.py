@@ -116,6 +116,9 @@ keys = [
         lazy.spawn("dmenu_run -p 'Run: '"),
         desc='Run Launcher'
         ),
+    Key([mod, "control"], "s",
+        lazy.spawn("gnome-screenshot -i"),
+        desc="Screenshot area"),
 
     # Multi-Screen Focus
     Key([mod], "comma", lazy.prev_screen(), desc="Focus the prev screen"),
