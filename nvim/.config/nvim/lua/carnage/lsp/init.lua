@@ -1,3 +1,3 @@
 require("carnage.lsp.diagnostics")
-require("carnage.lsp.servers").setup()
+require("carnage.lsp.servers")
 require("carnage.lsp.null-ls")

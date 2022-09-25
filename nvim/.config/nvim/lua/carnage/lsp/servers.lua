@@ -38,21 +38,15 @@ local setup_server = function(server, config)
     -- on_init = custom_init,
     -- on_attach = default_on_attach,
     -- capabilities = updated_capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    },
   }, config)
 
   lspconfig[server].setup(config)
 end
 
-local function setup()
+local function setup_servers()
   for server, config in pairs(servers) do
     setup_server(server, config)
   end
 end
 
-return {
-  setup = setup,
-}
-
+setup_servers()
