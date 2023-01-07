@@ -61,6 +61,7 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     s = { "<cmd>Telescope grep_string<cr>", "Find String" },
     d = { "<cmd>Telescope find_files cwd=~/dotfiles hidden=true<cr>", "Seach dotfiles" },
+    D = { "<cmd>Telescope live_grep cwd=~/dotfiles<cr>", "grep dotfiles" },
     c = { "<cmd>Telescope colorscheme enable_preview=true <cr>", "Colorscheme with Preview", },
     t = { "<cmd>TodoTelescope keywords=TODO,FIX<cr>", "Find TODOs" },
   },
@@ -69,12 +70,13 @@ local mappings = {
     j = { "<cmd>BufferLinePick<cr>", "Jump to Bufffer" },
     f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
     c = { "<cmd>bd<cr>", "Close current" },
+    C = { "<cmd>bd!<cr>", "Close current" },
     o = { '<cmd>%bd|e#|bd#<cr>', "Close other buffers" },
   },
   l = {
     name = "lsp",
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Fromat buffer" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Fromat buffer" },
   },
   p = {
     name = "Packer",

@@ -7,6 +7,7 @@ require("carnage.lsp")
 require("carnage.nvim-tree")
 require("carnage.telescope")
 require("carnage.treesitter")
+require("carnage.mason")
 require("carnage.whichkey")
 
 -- Fancy things

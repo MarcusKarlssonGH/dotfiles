@@ -5,6 +5,9 @@ general
     tmux or nvim?
 
 nvim
+  Prune this...
+  gf: edit file (see Jess Archer Vimconf)
+  leader+x: open file in default application (Jess Archer)
   bufferline: what do we want/need here?
     mini.tabline
     tabline.nvm

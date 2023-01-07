@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
     }
 -- LSP
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
 -- Completion
 	use 'hrsh7th/nvim-cmp' -- Completion engine
   use 'hrsh7th/cmp-buffer' -- From open buffers
@@ -59,11 +60,11 @@ return require('packer').startup(function(use)
     "folke/which-key.nvim",
     config = function() require("which-key").setup { } end
   }
-  use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function() require("todo-comments").setup { } end
-  }
+  -- use {
+  --   "folke/todo-comments.nvim",
+  --   requires = "nvim-lua/plenary.nvim",
+  --   config = function() require("todo-comments").setup { } end
+  -- }
   use "machakann/vim-sandwich"
   use "folke/tokyonight.nvim"
   -- use "/home/marcus/code/nvim/stackmap.nvim/"

@@ -1,6 +1,11 @@
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 -- Can we just do something like setup.view.mappings.list?
 require("nvim-tree").setup{
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {},
+  },
   view = {
     adaptive_size = true,
     mappings = {
