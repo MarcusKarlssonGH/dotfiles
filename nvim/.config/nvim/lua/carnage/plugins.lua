@@ -11,27 +11,23 @@ return require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
 -- Completion
 	use 'hrsh7th/nvim-cmp' -- Completion engine
-  use 'hrsh7th/cmp-buffer' -- From open buffers
+	use 'hrsh7th/cmp-nvim-lsp'
+  use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
+  -- use 'hrsh7th/cmp-buffer' -- From open buffers
   use 'hrsh7th/cmp-path' -- File/path completion
   use 'hrsh7th/cmp-nvim-lua'
-	use 'hrsh7th/cmp-nvim-lsp'
   use 'onsails/lspkind-nvim'
-  use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-        local saga = require("lspsaga")
-        saga.init_lsp_saga({
-        })
-    end,
-  })
-  use { 'L3MON4D3/LuaSnip' }
+  use 'folke/neodev.nvim'
 -- Formatting
   use 'jose-elias-alvarez/null-ls.nvim'
 
 -- TreeSitter
   use {'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'}
+    run = function()
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
+    end,
+  }
 -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
