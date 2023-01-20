@@ -13,6 +13,8 @@ require 'nvim-treesitter.configs'.setup {
     "bash",
     "cpp",
     "c",
+    "vim",
+    "help",
   }
 }
 
