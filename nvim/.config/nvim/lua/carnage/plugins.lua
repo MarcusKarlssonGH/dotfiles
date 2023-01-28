@@ -36,9 +36,8 @@ return require("lazy").setup({
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-nvim-lua",
 	"onsails/lspkind-nvim",
-	"folke/neodev.nvim",
+  { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 	-- Formatting
-	-- 'jose-elias-alvarez/null-ls.nvim',
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "mason.nvim" },
