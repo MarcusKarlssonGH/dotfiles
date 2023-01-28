@@ -11,10 +11,16 @@ require 'nvim-treesitter.configs'.setup {
     "python",
     "lua",
     "bash",
-    "cpp",
     "c",
+    "cpp",
+    "c_sharp",
     "vim",
     "help",
+    "json",
+    "yaml",
+    "latex",
+    "markdown",
+    "regex",
   }
 }
 
