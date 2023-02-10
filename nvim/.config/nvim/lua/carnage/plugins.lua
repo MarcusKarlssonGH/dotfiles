@@ -5,7 +5,6 @@ return require("lazy").setup({
 		dependencies = "kyazdani42/nvim-web-devicons",
 	},
 	-- LSP
-	"neovim/nvim-lspconfig",
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
@@ -14,6 +13,7 @@ return require("lazy").setup({
 			ensure_installed = {
 				"stylua",
 				"shellcheck",
+				"pyright",
 			},
 		},
 		config = function(_, opts)
@@ -27,6 +27,8 @@ return require("lazy").setup({
 			end
 		end,
 	},
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
 	-- Completion
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
