@@ -113,4 +113,8 @@ return require("lazy").setup({
 			require("leap").add_default_mappings()
 		end,
 	},
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = "mfussenegger/nvim-dap",
+	},
 })

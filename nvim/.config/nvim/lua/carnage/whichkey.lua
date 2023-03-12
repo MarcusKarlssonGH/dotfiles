@@ -78,12 +78,29 @@ local mappings = {
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
     f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Fromat buffer" },
   },
-  p = {
-    name = "Packer",
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    c = { "<cmd>PackerClean<cr>", "Clean" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
+  d = {
+    name = "debug",
+    b = { require("dap").toggle_breakpoint, "Toggle breakpoint" },
+    B = { function()
+      require("dap").set_breakpoint(vim.fn.input "[DAP] Condition > ")
+    end, "Conditional breakpoint" },
+    e = { require("dapui").eval, "Evaluate current" },
+    E = { function()
+      require("dapui").eval(vim.fn.input "[DAP] Expression: ")
+    end, "Evaluate expression" },
+    q = { require("dapui").close, "Quit" },
+-- map("<leader>de", require("dapui").eval)
+-- map("<leader>dE", function()
+--   require("dapui").eval(vim.fn.input "[DAP] Expression > ")
+-- end)
   },
+
+  -- p = {
+  --   name = "Packer",
+  --   s = { "<cmd>PackerSync<cr>", "Sync" },
+  --   c = { "<cmd>PackerClean<cr>", "Clean" },
+  --   i = { "<cmd>PackerInstall<cr>", "Install" },
+  -- },
 }
 
 wk.register(mappings, opts)
