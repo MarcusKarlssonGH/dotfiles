@@ -21,7 +21,7 @@ local servers = {
     },
     filetypes = { "c", "cpp" },
   },
-  sumneko_lua = require("carnage.lsp.settings.sumneko_lua"),
+  lua_ls = require("carnage.lsp.settings.sumneko_lua"),
   omnisharp = require("carnage.lsp.settings.omnisharp"),
 }
 
