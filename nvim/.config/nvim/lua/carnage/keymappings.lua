@@ -65,3 +65,7 @@ vim.api.nvim_set_keymap("n", "<leader>dp", '<cmd>lua vim.diagnostic.goto_prev({ 
 vim.api.nvim_set_keymap("n", "<leader>dn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 vim.api.nvim_set_keymap("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts)
 vim.api.nvim_set_keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
+-- Jess Archer
+vim.keymap.set("", "gf", ":edit <cfile><cr>") -- Edit file under cursor
+vim.keymap.set("n", "<leader>x", ":!xdg-open %<cr><cr>") -- Open current file in default program
