@@ -26,8 +26,9 @@ vim.o.undofile = true -- enable persistent undo
 vim.o.updatetime = 300 -- faster completion
 vim.o.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program) it is not allowed to be edited
 vim.o.expandtab = true -- convert tabs to spaces
-vim.o.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.o.tabstop = 2 -- insert 2 spaces for a tab
+vim.o.shiftwidth = 4 -- the number of spaces inserted for each indentation
+vim.o.tabstop = 4 -- insert 2 spaces for a tab
+vim.o.softtabstop = 4 -- insert 2 spaces for a tab
 vim.o.cursorline = true -- highlight the current line
 vim.o.number = true -- set numbered lines
 vim.o.relativenumber = false -- set relative numbered lines
@@ -44,4 +45,4 @@ vim.opt.formatoptions = vim.opt.formatoptions -- see tj's config for more info
   + "r"
   + "c"
   - "t"
-
+vim.opt.colorcolumn = "80"
