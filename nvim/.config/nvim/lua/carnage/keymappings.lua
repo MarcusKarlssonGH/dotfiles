@@ -69,3 +69,5 @@ vim.api.nvim_set_keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', o
 -- Jess Archer
 vim.keymap.set("", "gf", ":edit <cfile><cr>") -- Edit file under cursor
 vim.keymap.set("n", "<leader>x", ":!xdg-open %<cr><cr>") -- Open current file in default program
+
+vim.keymap.set("v", "<leader>lf", vim.lsp.buf.format, { remap = false })
