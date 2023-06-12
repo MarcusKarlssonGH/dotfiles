@@ -10,6 +10,7 @@ end
 -- end
 
 local servers = {
+  matlab_ls = true,
   pyright = true,
   clangd = {
     cmd = {
