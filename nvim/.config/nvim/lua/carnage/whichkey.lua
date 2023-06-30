@@ -88,19 +88,12 @@ local mappings = {
     E = { function()
       require("dapui").eval(vim.fn.input "[DAP] Expression: ")
     end, "Evaluate expression" },
-    q = { require("dapui").close, "Quit" },
--- map("<leader>de", require("dapui").eval)
--- map("<leader>dE", function()
---   require("dapui").eval(vim.fn.input "[DAP] Expression > ")
--- end)
+    t = { require("dapui").toggle, "toggle dap ui" },
+    q = { function()
+        require("dapui").close()
+        require("dap").close()
+    end, "quit debugger"},
   },
-
-  -- p = {
-  --   name = "Packer",
-  --   s = { "<cmd>PackerSync<cr>", "Sync" },
-  --   c = { "<cmd>PackerClean<cr>", "Clean" },
-  --   i = { "<cmd>PackerInstall<cr>", "Install" },
-  -- },
 }
 
 wk.register(mappings, opts)
