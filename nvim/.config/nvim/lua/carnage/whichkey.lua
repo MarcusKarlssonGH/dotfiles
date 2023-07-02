@@ -36,7 +36,7 @@ local my_setup = {
       show_help = true, -- show help message on the command line when the popup is visible
     }
 wk.setup(my_setup)
-local opts = {
+local normal_opts = {
       mode = "n", -- NORMAL mode
       prefix = "<leader>",
       buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -44,7 +44,7 @@ local opts = {
       noremap = true, -- use `noremap` when creating keymaps
       nowait = true, -- use `nowait` when creating keymaps
     }
-local mappings = {
+local normal_mappings = {
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
@@ -94,6 +94,31 @@ local mappings = {
         require("dap").close()
     end, "quit debugger"},
   },
+  r = {
+    name = "refactor",
+    e = { " <Esc><cmd>lua require('refactoring').refactor('Extract Block')<cr>", "Extract Block" },
+    f = { " <Esc><cmd>lua require('refactoring').refactor('Extract Block To File')<cr>", "Extract Block To File" },
+  },
 }
 
-wk.register(mappings, opts)
+wk.register(normal_mappings, normal_opts)
+
+local visual_mappings = {
+  r = {
+    name = "refactor",
+    e = { " <Esc><cmd>lua require('refactoring').refactor('Extract Function')<cr>", "Extract Function" },
+    f = { " <Esc><cmd>lua require('refactoring').refactor('Extract Function To File')<cr>", "Extract Function To File" },
+    v = { " <Esc><cmd>lua require('refactoring').refactor('Extract Variable')<cr>", "Extract Variable" },
+    i = { " <Esc><cmd>lua require('refactoring').refactor('Inline Variable')<cr>", "Inline Variable" },
+  },
+}
+local visual_opts = {
+      mode = "v", -- NORMAL mode
+      prefix = "<leader>",
+      buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+      silent = true, -- use `silent` when creating keymaps
+      noremap = true, -- use `noremap` when creating keymaps
+      nowait = true, -- use `nowait` when creating keymaps
+    }
+wk.register(visual_mappings, visual_opts)
+
