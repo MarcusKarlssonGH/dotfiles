@@ -34,4 +34,3 @@ require("carnage.whichkey")
 require("carnage.lualine")
 require("carnage.bufferline")
 require("carnage.dap")
-

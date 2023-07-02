@@ -72,3 +72,7 @@ vim.keymap.set("", "gf", ":edit <cfile><cr>") -- Edit file under cursor
 vim.keymap.set("n", "<leader>x", ":!xdg-open %<cr><cr>") -- Open current file in default program
 
 vim.keymap.set("v", "<leader>lf", vim.lsp.buf.format, { remap = false })
+
+-- Quickfix
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<leader>cp", "<cmd>cprev<CR>zz")
