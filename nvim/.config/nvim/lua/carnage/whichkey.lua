@@ -77,6 +77,7 @@ local normal_mappings = {
     name = "lsp",
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
     f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Fromat buffer" },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },
   },
   d = {
     name = "debug",
