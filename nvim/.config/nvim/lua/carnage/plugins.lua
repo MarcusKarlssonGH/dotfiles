@@ -1,8 +1,15 @@
 return require("lazy").setup({
 	-- File Explorer
 	{
-		"kyazdani42/nvim-tree.lua",
-		dependencies = "kyazdani42/nvim-web-devicons",
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+        require("nvim-tree").setup {}
+        end,
 	},
 	-- LSP
 	{
@@ -81,7 +88,7 @@ return require("lazy").setup({
 	-- Fancy things
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons", opt = true },
+		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
 	"christianchiarulli/nvcode-color-schemes.vim",
 	{
@@ -92,7 +99,7 @@ return require("lazy").setup({
 	},
 	{
 		"akinsho/bufferline.nvim",
-		dependencies = "kyazdani42/nvim-web-devicons",
+		dependencies = "nvim-tree/nvim-web-devicons",
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -106,7 +113,7 @@ return require("lazy").setup({
 			require("which-key").setup({})
 		end,
 	},
-	"machakann/vim-sandwich",
+	-- "machakann/vim-sandwich",
 	"folke/tokyonight.nvim",
 	{
 		"ggandor/leap.nvim",
@@ -125,4 +132,24 @@ return require("lazy").setup({
             "nvim-treesitter/nvim-treesitter",
         }
     },
+  {
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.defaults"] = {}, -- Loads default behaviour
+          ["core.concealer"] = {}, -- Adds pretty icons to your documents
+          ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/notes",
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
 })
