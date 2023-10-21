@@ -67,7 +67,6 @@ local normal_mappings = {
   },
   b = {
     name = "Buffers",
-    j = { "<cmd>BufferLinePick<cr>", "Jump to Bufffer" },
     f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
     c = { "<cmd>bd<cr>", "Close current" },
     C = { "<cmd>bd!<cr>", "Close current" },
@@ -97,8 +96,15 @@ local normal_mappings = {
   },
   r = {
     name = "refactor",
-    e = { " <Esc><cmd>lua require('refactoring').refactor('Extract Block')<cr>", "Extract Block" },
-    f = { " <Esc><cmd>lua require('refactoring').refactor('Extract Block To File')<cr>", "Extract Block To File" },
+    e = { "<Esc><cmd>lua require('refactoring').refactor('Extract Block')<cr>", "Extract Block" },
+    f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Block To File')<cr>", "Extract Block To File" },
+  },
+  n = {
+    name = "neorg",
+    i = { ":Neorg index<cr>", "index" },
+    r = { ":Neorg return<cr>", "return" },
+    t = { ":Neorg toggle-concealer<cr>", "toggle concealer" },
+    e = { ":Neorg toc<cr>", "(explore) table of content" },
   },
 }
 

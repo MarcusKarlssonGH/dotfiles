@@ -46,3 +46,5 @@ vim.opt.formatoptions = vim.opt.formatoptions -- see tj's config for more info
   + "c"
   - "t"
 vim.opt.colorcolumn = "80"
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"

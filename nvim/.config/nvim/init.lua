@@ -13,12 +13,12 @@ vim.opt.rtp:prepend(lazypath)
 -- Set Space as leader
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
+-- Set ; as local leader
+vim.g.maplocalleader = ';'
+
+-- Recommended for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
-
-
--- old
 
 require("carnage.settings")
 require("carnage.plugins")
@@ -30,7 +30,6 @@ require("carnage.nvim-tree")
 require("carnage.telescope")
 require("carnage.treesitter")
 require("carnage.whichkey")
-
 
 -- Fancy things
 require("carnage.lualine")
