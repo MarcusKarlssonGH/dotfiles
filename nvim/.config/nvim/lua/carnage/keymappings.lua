@@ -1,5 +1,4 @@
 
-
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 
 -- Reload (Temp for development)
@@ -12,21 +11,16 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 
 -- Navigate buffers
-vim.api.nvim_set_keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', { silent = true })
-vim.api.nvim_set_keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<M-l>', ':BufferLineCycleNext<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<M-h>', ':BufferLineCyclePrev<CR>', { silent = true })
 
 -- Better indenting
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 
--- Tab to swich buffer
---vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', { noremap = true, silent = true })
-
 -- Don't use escape
--- vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('i', '<C-c>', '<NOP>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<M-k>', '<ESC>', { noremap = true, silent = true })
 
 -- Move selected lines in visual mode
 vim.api.nvim_set_keymap('x', 'K', ":move '<-2<CR>gv=gv", { noremap = true, silent = true })
@@ -50,22 +44,6 @@ vim.api.nvim_set_keymap('i', ',', ',<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '.', '.<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '!', '!<c-g>u', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '?', '?<c-g>u', { noremap = true, silent = true })
-
--- Lsp
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-vim.api.nvim_set_keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-vim.api.nvim_set_keymap("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-vim.api.nvim_set_keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<CR>", opts)
-vim.api.nvim_set_keymap("n", "<leader>dp", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-vim.api.nvim_set_keymap("n", "<leader>dn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-vim.api.nvim_set_keymap("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts)
-vim.api.nvim_set_keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-vim.api.nvim_set_keymap("i", "<C-c>", "<ESC>", opts)
 
 -- Jess Archer
 vim.keymap.set("", "gf", ":edit <cfile><cr>") -- Edit file under cursor
