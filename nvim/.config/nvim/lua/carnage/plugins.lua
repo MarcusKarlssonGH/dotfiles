@@ -1,15 +1,15 @@
 return require("lazy").setup({
 	-- File Explorer
 	{
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-        "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-        require("nvim-tree").setup {}
-        end,
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup({})
+		end,
 	},
 	-- LSP
 	{
@@ -45,7 +45,7 @@ return require("lazy").setup({
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-nvim-lua",
 	"onsails/lspkind-nvim",
-  { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+	{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
 	-- Formatting
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -125,36 +125,37 @@ return require("lazy").setup({
 		"rcarriga/nvim-dap-ui",
 		dependencies = "mfussenegger/nvim-dap",
 	},
-    {
-        "ThePrimeagen/refactoring.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        }
-    },
-  {
-    "nvim-neorg/neorg",
-    build = ":Neorg sync-parsers",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {
-              config = {
-                  icon_preset = "diamond",
-              },
-          }, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-              default_workspace = "notes",
-            },
-          },
-        },
-      }
-    end,
-  },
+	{
+		"ThePrimeagen/refactoring.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+	{
+		"nvim-neorg/neorg",
+		build = ":Neorg sync-parsers",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {}, -- Loads default behaviour
+					["core.concealer"] = {
+						config = {
+							icon_preset = "diamond",
+						},
+					}, -- Adds pretty icons to your documents
+					["core.dirman"] = { -- Manages Neorg workspaces
+						config = {
+							workspaces = {
+								notes = "~/notes",
+							},
+							default_workspace = "notes",
+						},
+					},
+					["core.summary"] = {},
+				},
+			})
+		end,
+	},
 })
