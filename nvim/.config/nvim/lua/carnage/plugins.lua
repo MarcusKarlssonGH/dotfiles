@@ -164,4 +164,10 @@ return require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
+	{
+		"hiphish/rainbow-delimiters.nvim",
+		config = function()
+			require("rainbow-delimiters.setup").setup()
+		end,
+	},
 })
