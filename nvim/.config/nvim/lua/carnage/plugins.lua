@@ -39,7 +39,6 @@ return require("lazy").setup({
 	-- Completion
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
-	"L3MON4D3/LuaSnip",
 	"saadparwaiz1/cmp_luasnip",
 	-- 'hrsh7th/cmp-buffer', -- From open buffers,
 	"hrsh7th/cmp-path",
@@ -174,5 +173,25 @@ return require("lazy").setup({
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		opts = {},
+	},
+	{
+		"lervag/vimtex",
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		version = "v2.*",
+		build = "make install_jsregexp",
+		-- dependencies = { "rafamadriz/friendly-snippets" },
+	},
+	{
+		"iurimateus/luasnip-latex-snippets.nvim",
+		-- vimtex isn't required if using treesitter
+		-- dependencies = { "L3MON4D3/LuaSnip" },
+		dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+		config = function()
+			require("luasnip-latex-snippets").setup()
+			-- require("luasnip-latex-snippets").setup({ use_treesitter = true })
+			require("luasnip").config.setup({ enable_autosnippets = true })
+		end,
 	},
 })

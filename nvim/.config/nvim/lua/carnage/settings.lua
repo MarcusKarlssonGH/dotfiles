@@ -2,7 +2,6 @@ vim.o.backup = false -- creates a backup file
 vim.o.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.o.cmdheight = 1 -- more space in the neovim command line for displaying messages
 vim.o.completeopt = "menuone,noselect"
-vim.o.conceallevel = 0 -- so that `` is visible in markdown files
 vim.o.fileencoding = "utf-8" -- the encoding written to a file
 vim.o.foldmethod = "manual" -- folding, set to "expr" for treesitter based folding
 vim.o.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
@@ -46,5 +45,5 @@ vim.opt.formatoptions = vim.opt.formatoptions -- see tj's config for more info
   + "c"
   - "t"
 vim.opt.colorcolumn = "80"
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 1
 vim.opt.concealcursor = "nc"

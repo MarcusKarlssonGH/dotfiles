@@ -35,3 +35,18 @@ require("carnage.whichkey")
 require("carnage.lualine")
 require("carnage.bufferline")
 require("carnage.dap")
+
+-- TMP
+-- vim.g.UltiSnipsExpandTrigger="<tab>"
+-- vim.g.UltiSnipsJumpForwardTrigger="<c-b>"
+-- vim.g.UltiSnipsJumpBackwardTrigger="<c-z>"
+-- vim.g.tex_conceal="abdmgs"
+-- vim.g.vimtex_syntax_enabled = 0
+-- -- vim.g.vimtex_syntax_conceal_default=2
+vim.g.tex_syntax_conceal_default=1
+vim.g.vimtex_conceal="abdmgs"
+vim.g.vimtex_view_method = "zathura"
+require("carnage.luasnip")
+-- friendly snippets
+-- vs-code snippets
+-- latex snippets
