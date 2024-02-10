@@ -170,4 +170,9 @@ return require("lazy").setup({
 			require("rainbow-delimiters.setup").setup()
 		end,
 	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
+	},
 })

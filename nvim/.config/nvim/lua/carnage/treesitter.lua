@@ -8,19 +8,20 @@ require 'nvim-treesitter.configs'.setup {
     disable = {},
   },
   ensure_installed = {
-    "python",
-    "lua",
-    "bash",
     "c",
-    "cpp",
-    "c_sharp",
+    "lua",
     "vim",
-    "help",
+    "vimdoc",
+    "query",
+    "bash",
+    "c_sharp",
+    "cpp",
     "json",
-    "yaml",
-    "latex",
+    -- "latex",
     "markdown",
+    "python",
     "regex",
+    "yaml",
   }
 }
 
