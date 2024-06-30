@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts)
 		vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 		vim.keymap.set("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+		vim.keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	end,
 })
 

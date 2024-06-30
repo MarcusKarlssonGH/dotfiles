@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Set Space as leader
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
--- Set ; as local leader
 vim.g.maplocalleader = ';'
 
 -- Recommended for nvim-tree
@@ -34,4 +33,4 @@ require("carnage.whichkey")
 -- Fancy things
 require("carnage.lualine")
 require("carnage.bufferline")
-require("carnage.dap")
+-- require("carnage.dap")
