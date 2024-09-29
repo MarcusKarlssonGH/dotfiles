@@ -43,6 +43,7 @@ local servers = {
 	},
 	lua_ls = require("carnage.lsp.settings.sumneko_lua"),
 	omnisharp = require("carnage.lsp.settings.omnisharp"),
+    cmake = true,
 }
 
 local setup_server = function(server, config)
