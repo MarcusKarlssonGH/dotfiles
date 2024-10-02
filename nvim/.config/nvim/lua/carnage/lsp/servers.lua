@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
 		vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", opts)
-		vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 		vim.keymap.set("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 		vim.keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 	end,
@@ -43,7 +43,7 @@ local servers = {
 	},
 	lua_ls = require("carnage.lsp.settings.sumneko_lua"),
 	omnisharp = require("carnage.lsp.settings.omnisharp"),
-    cmake = true,
+	cmake = true,
 }
 
 local setup_server = function(server, config)

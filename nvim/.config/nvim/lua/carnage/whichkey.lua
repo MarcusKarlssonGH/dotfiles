@@ -1,155 +1,167 @@
 local wk = require("which-key")
 local my_setup = {
-    plugins = {
-        marks = true, -- shows a list of your marks on ' and `
-        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-        -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-        -- No actual key bindings are created
-        presets = {
-            operators = false,                     -- adds help for operators like d, y, ...
-            motions = false,                       -- adds help for motions
-            text_objects = false,                  -- help for text objects triggered after entering an operator
-            windows = true,                        -- default bindings on <c-w>
-            nav = true,                            -- misc bindings to work with windows
-            z = true,                              -- bindings for folds, spelling and others prefixed with z
-            g = true,                              -- bindings for prefixed with g
-        },
-        spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
-    },
-    icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "➜", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
-    },
-    window = {
-        border = "single",  -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    },
-    layout = {
-        height = { min = 4, max = 25 },                                        -- min and max height of the columns
-        width = { min = 20, max = 50 },                                        -- min and max width of the columns
-        spacing = 3,                                                           -- spacing between columns
-    },
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    show_help = true,                                                          -- show help message on the command line when the popup is visible
+	plugins = {
+		marks = true, -- shows a list of your marks on ' and `
+		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
+		-- No actual key bindings are created
+		presets = {
+			operators = false, -- adds help for operators like d, y, ...
+			motions = false, -- adds help for motions
+			text_objects = false, -- help for text objects triggered after entering an operator
+			windows = true, -- default bindings on <c-w>
+			nav = true, -- misc bindings to work with windows
+			z = true, -- bindings for folds, spelling and others prefixed with z
+			g = true, -- bindings for prefixed with g
+		},
+		spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
+	},
+	icons = {
+		breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+		separator = "➜", -- symbol used between a key and it's label
+		group = "+", -- symbol prepended to a group
+	},
+	window = {
+		border = "single", -- none, single, double, shadow
+		position = "bottom", -- bottom, top
+		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+	},
+	layout = {
+		height = { min = 4, max = 25 }, -- min and max height of the columns
+		width = { min = 20, max = 50 }, -- min and max width of the columns
+		spacing = 3, -- spacing between columns
+	},
+	hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+	show_help = true, -- show help message on the command line when the popup is visible
 }
 wk.setup(my_setup)
-local normal_opts = {
-    mode = "n",  -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-}
-local normal_mappings = {
-    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    ["w"] = { "<cmd>w!<CR>", "Save" },
-    ["q"] = { "<cmd>q!<CR>", "Quit" },
-    f = {
-        name = "Find",
-        b = { "<cmd>Telescope buffers<cr>", "Find buffer" },
-        f = { "<cmd>Telescope find_files<cr>", "Find File" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-        R = { "<cmd>Telescope registers<cr>", "Registers" },
-        g = { "<cmd>Telescope live_grep<cr>", "grep" },
-        k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        C = { "<cmd>Telescope commands<cr>", "Commands" },
-        s = { "<cmd>Telescope grep_string<cr>", "Find String" },
-        d = { "<cmd>Telescope find_files cwd=~/dotfiles hidden=true<cr>", "Seach dotfiles" },
-        D = { "<cmd>Telescope live_grep cwd=~/dotfiles<cr>", "grep dotfiles" },
-        c = { "<cmd>Telescope colorscheme enable_preview=true <cr>", "Colorscheme with Preview" },
-        t = { "<cmd>TodoTelescope keywords=TODO,FIX<cr>", "Find TODOs" },
-    },
-    b = {
-        name = "Buffers",
-        f = { "<cmd>Telescope buffers<cr>", "Find Buffer" },
-        c = { "<cmd>bd<cr>", "Close current" },
-        C = { "<cmd>bd!<cr>", "Close current" },
-        o = { "<cmd>%bd|e#|bd#<cr>", "Close other buffers" },
-    },
-    l = {
-        name = "lsp",
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename symbol" },
-        f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Fromat buffer" },
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code actions" },
-    },
-    -- d = {
-    --   name = "debug",
-    --   b = { require("dap").toggle_breakpoint, "Toggle breakpoint" },
-    --   B = { function()
-    --     require("dap").set_breakpoint(vim.fn.input "[DAP] Condition > ")
-    --   end, "Conditional breakpoint" },
-    --   e = { require("dapui").eval, "Evaluate current" },
-    --   E = { function()
-    --     require("dapui").eval(vim.fn.input "[DAP] Expression: ")
-    --   end, "Evaluate expression" },
-    --   t = { require("dapui").toggle, "toggle dap ui" },
-    --   q = { function()
-    --       require("dapui").close()
-    --       require("dap").close()
-    --   end, "quit debugger"},
-    -- },
-    r = {
-        name = "refactor",
-        e = { "<Esc><cmd>lua require('refactoring').refactor('Extract Block')<cr>", "Extract Block" },
-        f = { "<Esc><cmd>lua require('refactoring').refactor('Extract Block To File')<cr>", "Extract Block To File" },
-    },
-    n = {
-        name = "neorg",
-        i = { ":Neorg index<cr>", "index" },
-        r = { ":Neorg return<cr>", "return" },
-        t = { ":Neorg toggle-concealer<cr>", "toggle concealer" },
-        e = { ":Neorg toc<cr>", "(explore) table of content" },
-    },
-    g = {
-        name = "git",
-        b = { ":Gitsigns toggle_current_line_blame<cr>", "blame" },
-        s = { ":Gitsigns stage_hunk<cr>", "stage hunk" },
-        r = { ":Gitsigns reset_hunk<cr>", "reset hunk" },
-        S = { ":Gitsigns stage_buffer<cr>", "stage buffer" },
-        u = { ":Gitsigns undo_stage_hunk<cr>", "undo stage" },
-        R = { ":Gitsigns reset_buffer<cr>", "reset buffer" },
-        p = { ":Gitsigns preview_hunk<cr>", "preview" },
-        B = { ":Gitsigns blame_line{full=true}<cr>", "full blame" },
-        d = { ":Gitsigns diffthis<cr>", "diff" },
-        D = { ":Gitsigns diffthis('~')<cr>", "diff2" },
-        t = { ":Gitsigns toggle_deleted<cr>", "toggle deleted" },
-        -- r = { ":Neorg return<cr>", "return" },
-        -- t = { ":Neorg toggle-concealer<cr>", "toggle concealer" },
-        -- e = { ":Neorg toc<cr>", "(explore) table of content" },
-    },
-}
 
-wk.register(normal_mappings, normal_opts)
-
-local visual_mappings = {
-    r = {
-        name = "refactor",
-        e = { " <Esc><cmd>lua require('refactoring').refactor('Extract Function')<cr>", "Extract Function" },
-        f = {
-            " <Esc><cmd>lua require('refactoring').refactor('Extract Function To File')<cr>",
-            "Extract Function To File",
-        },
-        v = { " <Esc><cmd>lua require('refactoring').refactor('Extract Variable')<cr>", "Extract Variable" },
-        i = { " <Esc><cmd>lua require('refactoring').refactor('Inline Variable')<cr>", "Inline Variable" },
-    },
-    g = {
-        name = "git",
-        s = { ":Gitsigns gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>", "stage" },
-        r = { ":Gitsigns gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>", "reset" },
-    },
-}
-local visual_opts = {
-    mode = "v",  -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-}
-wk.register(visual_mappings, visual_opts)
+wk.add({
+	{ "<leader>Q", "<cmd>q!<CR>", desc = "Quit", nowait = true, remap = false },
+	{ "<leader>b", group = "Buffers", nowait = true, remap = false },
+	{ "<leader>bC", "<cmd>bd!<cr>", desc = "Close current", nowait = true, remap = false },
+	{ "<leader>bc", "<cmd>bd<cr>", desc = "Close current", nowait = true, remap = false },
+	{ "<leader>bf", "<cmd>Telescope buffers<cr>", desc = "Find Buffer", nowait = true, remap = false },
+	{ "<leader>bo", "<cmd>%bd|e#|bd#<cr>", desc = "Close other buffers", nowait = true, remap = false },
+	{ "<leader>f", group = "Find", nowait = true, remap = false },
+	{ "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
+	{
+		"<leader>fD",
+		"<cmd>Telescope live_grep cwd=~/dotfiles<cr>",
+		desc = "grep dotfiles",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages", nowait = true, remap = false },
+	{ "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers", nowait = true, remap = false },
+	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find buffer", nowait = true, remap = false },
+	{
+		"<leader>fc",
+		"<cmd>Telescope colorscheme enable_preview=true <cr>",
+		desc = "Colorscheme with Preview",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>fd",
+		"<cmd>Telescope find_files cwd=~/dotfiles hidden=true<cr>",
+		desc = "Seach dotfiles",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", nowait = true, remap = false },
+	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "grep", nowait = true, remap = false },
+	{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
+	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
+	{ "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Find String", nowait = true, remap = false },
+	{ "<leader>ft", "<cmd>TodoTelescope keywords=TODO,FIX<cr>", desc = "Find TODOs", nowait = true, remap = false },
+	{ "<leader>g", group = "git", nowait = true, remap = false },
+	{ "<leader>gB", ":Gitsigns blame_line{full=true}<cr>", desc = "full blame", nowait = true, remap = false },
+	{ "<leader>gD", ":Gitsigns diffthis('~')<cr>", desc = "diff2", nowait = true, remap = false },
+	{ "<leader>gR", ":Gitsigns reset_buffer<cr>", desc = "reset buffer", nowait = true, remap = false },
+	{ "<leader>gS", ":Gitsigns stage_buffer<cr>", desc = "stage buffer", nowait = true, remap = false },
+	{ "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>", desc = "blame", nowait = true, remap = false },
+	{ "<leader>gd", ":Gitsigns diffthis<cr>", desc = "diff", nowait = true, remap = false },
+	{ "<leader>gp", ":Gitsigns preview_hunk<cr>", desc = "preview", nowait = true, remap = false },
+	{ "<leader>gr", ":Gitsigns reset_hunk<cr>", desc = "reset hunk", nowait = true, remap = false },
+	{ "<leader>gs", ":Gitsigns stage_hunk<cr>", desc = "stage hunk", nowait = true, remap = false },
+	{ "<leader>gt", ":Gitsigns toggle_deleted<cr>", desc = "toggle deleted", nowait = true, remap = false },
+	{ "<leader>gu", ":Gitsigns undo_stage_hunk<cr>", desc = "undo stage", nowait = true, remap = false },
+	{ "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", nowait = true, remap = false },
+	{ "<leader>l", group = "lsp", nowait = true, remap = false },
+	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code actions", nowait = true, remap = false },
+	{ "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "Fromat buffer", nowait = true, remap = false },
+	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename symbol", nowait = true, remap = false },
+	{ "<leader>n", group = "neorg", nowait = true, remap = false },
+	{ "<leader>ne", ":Neorg toc<cr>", desc = "(explore) table of content", nowait = true, remap = false },
+	{ "<leader>ni", ":Neorg index<cr>", desc = "index", nowait = true, remap = false },
+	{ "<leader>nr", ":Neorg return<cr>", desc = "return", nowait = true, remap = false },
+	{ "<leader>nt", ":Neorg toggle-concealer<cr>", desc = "toggle concealer", nowait = true, remap = false },
+	{ "<leader>r", group = "refactor", nowait = true, remap = false },
+	{
+		"<leader>re",
+		"<Esc><cmd>lua require('refactoring').refactor('Extract Block')<cr>",
+		desc = "Extract Block",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>rf",
+		"<Esc><cmd>lua require('refactoring').refactor('Extract Block To File')<cr>",
+		desc = "Extract Block To File",
+		nowait = true,
+		remap = false,
+	},
+	{ "<leader>w", "<cmd>w!<CR>", desc = "Save", nowait = true, remap = false },
+	{
+		{
+			mode = { "v" },
+			{ "<leader>g", group = "git", nowait = true, remap = false },
+			{
+				"<leader>gr",
+				":Gitsigns gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>",
+				desc = "reset",
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>gs",
+				":Gitsigns gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')}<cr>",
+				desc = "stage",
+				nowait = true,
+				remap = false,
+			},
+			{ "<leader>r", group = "refactor", nowait = true, remap = false },
+			{
+				"<leader>re",
+				" <Esc><cmd>lua require('refactoring').refactor('Extract Function')<cr>",
+				desc = "Extract Function",
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rf",
+				" <Esc><cmd>lua require('refactoring').refactor('Extract Function To File')<cr>",
+				desc = "Extract Function To File",
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>ri",
+				" <Esc><cmd>lua require('refactoring').refactor('Inline Variable')<cr>",
+				desc = "Inline Variable",
+				nowait = true,
+				remap = false,
+			},
+			{
+				"<leader>rv",
+				" <Esc><cmd>lua require('refactoring').refactor('Extract Variable')<cr>",
+				desc = "Extract Variable",
+				nowait = true,
+				remap = false,
+			},
+		},
+	},
+})
