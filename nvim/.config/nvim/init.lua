@@ -28,5 +28,6 @@ require("carnage.nvim-tree")
 require("carnage.telescope")
 require("carnage.treesitter")
 require("carnage.whichkey")
+-- require("carnage.lint")
 
 vim.cmd("colorscheme tokyonight")

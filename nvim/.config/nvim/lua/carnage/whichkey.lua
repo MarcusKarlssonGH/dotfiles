@@ -70,6 +70,7 @@ wk.add({
 		nowait = true,
 		remap = false,
 	},
+	{ "<leader>fe", "<cmd>Telescope diagnostics<cr>", desc = "Find Errors", nowait = true, remap = false },
 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", nowait = true, remap = false },
 	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "grep", nowait = true, remap = false },
 	{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
