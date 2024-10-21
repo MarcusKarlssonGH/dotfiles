@@ -8,7 +8,7 @@ vim.o.foldmethod = "manual" -- folding, set to "expr" for treesitter based foldi
 vim.o.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
 vim.o.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.o.hlsearch = true -- highlight all matches on previous search pattern
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.o.ignorecase = true -- ignore case in search patterns
 vim.o.mouse = "r" -- allow the mouse to be used in neovim
 vim.o.pumheight = 10 -- pop up menu height
@@ -42,12 +42,12 @@ vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 vim.o.laststatus = 3 -- Single status bar
 vim.opt.formatoptions = vim.opt.formatoptions -- see tj's config for more info
-  - "o"
-  + "r"
-  + "c"
-  - "t"
+	- "o"
+	+ "r"
+	+ "c"
+	- "t"
 vim.opt.colorcolumn = "80"
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
