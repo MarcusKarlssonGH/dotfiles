@@ -45,14 +45,15 @@ popd || exit
 
 # This has to be after dotfiles
 # Node, nvm
-export PROFILE=dotfiles/zsh/.config/zsh/.zshrc
+export PROFILE=~/dotfiles/zsh/.config/zsh/.zshrc
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 zsh -i -c 'nvm install node'
 
 # TODO: check if target exist, then pull instead
 # # Neovim, depends on node, nvm
 git clone --depth 1 --branch stable https://github.com/neovim/neovim.git ~/git/neovim
-pushd ~/repos/neovim
+mkdir -p ~/git/neovim
+pushd ~/git/neovim
 # git pull
 # make distclean
 # make CMAKE_BUILD_TYPE=RelWIthDebInfo
