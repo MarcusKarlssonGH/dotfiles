@@ -2,6 +2,8 @@
 # TODO
 # convert to makefile (see TJ) 
 
+set -e # exit on error
+
 DOTFILES=$HOME/dotfiles/
 
 sudo apt-get update
@@ -16,7 +18,6 @@ sudo apt-get install -y build-essential \
     unzip \
     zip \
     tar \
-    # npm \
     cargo \
     python3.10-venv \
     luarocks \
