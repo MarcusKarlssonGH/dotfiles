@@ -28,7 +28,8 @@ return require("lazy").setup({
 					local map = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+					-- map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 					map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
@@ -234,30 +235,37 @@ return require("lazy").setup({
 	-- },
 	{
 		"nvim-neorg/neorg",
-		build = ":Neorg sync-parsers",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("neorg").setup({
-				load = {
-					["core.defaults"] = {}, -- Loads default behaviour
-					["core.concealer"] = {
-						config = {
-							icon_preset = "diamond",
-						},
-					}, -- Adds pretty icons to your documents
-					["core.dirman"] = { -- Manages Neorg workspaces
-						config = {
-							workspaces = {
-								notes = "~/notes",
-							},
-							default_workspace = "notes",
-						},
-					},
-					["core.summary"] = {},
-				},
-			})
-		end,
+		lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+		version = "*", -- Pin Neorg to the latest stable release
+		config = true,
 	},
+
+	-- {
+	-- 	"nvim-neorg/neorg",
+	-- 	build = ":Neorg sync-parsers",
+	-- 	dependencies = { "nvim-lua/plenary.nvim" },
+	-- 	config = function()
+	-- 		require("neorg").setup({
+	-- 			load = {
+	-- 				["core.defaults"] = {}, -- Loads default behaviour
+	-- 				["core.concealer"] = {
+	-- 					config = {
+	-- 						icon_preset = "diamond",
+	-- 					},
+	-- 				}, -- Adds pretty icons to your documents
+	-- 				["core.dirman"] = { -- Manages Neorg workspaces
+	-- 					config = {
+	-- 						workspaces = {
+	-- 							notes = "~/notes",
+	-- 						},
+	-- 						default_workspace = "notes",
+	-- 					},
+	-- 				},
+	-- 				["core.summary"] = {},
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -304,6 +312,10 @@ return require("lazy").setup({
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
 		keys = {
 			{ "<c-space>", desc = "Increment Selection" },
 			{ "<bs>", desc = "Decrement Selection", mode = "x" },
@@ -344,6 +356,42 @@ return require("lazy").setup({
 					node_incremental = "<C-space>",
 					scope_incremental = false,
 					node_decremental = "<bs>",
+				},
+			},
+			textobjects = {
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
+						["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
+						["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
+						["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
+
+						["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/argument" },
+						["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/argument" },
+
+						["ac"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
+						["ic"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
+
+						["al"] = { query = "@loop.outer", desc = "Select outer part of a loop" },
+						["il"] = { query = "@loop.inner", desc = "Select inner part of a loop" },
+
+						["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
+						["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
+
+						["am"] = {
+							query = "@function.outer",
+							desc = "Select outer part of a method/function definition",
+						},
+						["im"] = {
+							query = "@function.inner",
+							desc = "Select inner part of a method/function definition",
+						},
+
+						-- ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
+						-- ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
+					},
 				},
 			},
 		},

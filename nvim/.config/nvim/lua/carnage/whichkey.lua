@@ -100,6 +100,28 @@ wk.add({
 	{ "<leader>ni", ":Neorg index<cr>", desc = "index", nowait = true, remap = false },
 	{ "<leader>nr", ":Neorg return<cr>", desc = "return", nowait = true, remap = false },
 	{ "<leader>nt", ":Neorg toggle-concealer<cr>", desc = "toggle concealer", nowait = true, remap = false },
+	{ "<leader>p", group = "python", nowait = true, remap = false },
+	{
+		"<leader>pr",
+		"<cmd>terminal python3 %<cr>",
+		desc = "Run current file in terminal",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>pp",
+		"<cmd>terminal pypy3 %<cr>",
+		desc = "Run current file in terminal",
+		nowait = true,
+		remap = false,
+	},
+	{
+		"<leader>pt",
+		"<cmd>terminal python3 % test.in<cr>",
+		desc = "Run current file in terminal",
+		nowait = true,
+		remap = false,
+	},
 	{ "<leader>r", group = "refactor", nowait = true, remap = false },
 	{
 		"<leader>re",
