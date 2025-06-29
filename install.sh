@@ -27,11 +27,11 @@ sudo apt-get install -y build-essential \
 # Do we just install all pip stuff on the global python?
 #
 # zsh installation
-@echo "========================================"
-@echo "Installing Zsh..."
+# @echo "========================================"
+# @echo "Installing Zsh..."
 sudo apt install zsh -y
-chsh -s $(which zsh)
-@echo "========================================"
+# chsh -s $(which zsh)
+# @echo "========================================"
 
 # Dofiles setup
 DOTFILES=$HOME/dotfiles/
@@ -47,7 +47,7 @@ popd || exit
 # Node, nvm
 export PROFILE=dotfiles/zsh/.config/zsh/.zshrc
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-zsh -c "nvm install node"
+zsh -i -c 'nvm install node'
 
 # TODO: check if target exist, then pull instead
 # # Neovim, depends on node, nvm
